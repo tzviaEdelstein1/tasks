@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="matrix.css">
+    <script type="text/javascript" src="matrix.js"></script>
+</head>
+
+<body onload="createTable()">
+    <div class='main'>
+        <section class="content">
+          <h1>my matrix</h1>
+          <p>
+           by zivi
+          </p>
+        </section>
+
+        <div class="matrix">
+        <div class="row">
+            <div class="col-md-6">      
+            <button class="b-s-default" onclick="upperPart()">Upper part</button>
+            <button class="b-s-default" onclick="Diagonals()">Diagonals</button>
+         </div>
+         <div class=" col-md-6">    
+            <button class="b-s-default" onclick="downPart()">Down part</button>
+            <button class="b-s-default" onclick="border()">Border</button>
+        </div>
+    </div>
+        <div id="container">
+        <table class="heavyTable" id="table">
+       
+          <tbody id="tobody">
+          </tbody>
+        </table>
+</div>
+    </div>
+      </div>
+</body>
+
+</html>
