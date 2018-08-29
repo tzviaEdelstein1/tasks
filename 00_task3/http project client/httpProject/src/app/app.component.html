@@ -1,0 +1,63 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
+<div class="testbox">
+  <h1>Registration</h1>
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" >
+      <hr>
+ 
+  <hr>
+  <label id="icon" for="name"><i class="icon-shield"></i></label>
+
+  <input type="text" formControlName="tz" required minlength="9" maxlength="9" pattern="[0-9]+"placeholder="Tz">
+  <div *ngIf="tz.invalid && (tz.dirty || tz.touched || submitted)" class="alert alert-danger">
+    <div *ngIf="tz.errors.required">Id is required.</div>
+    <div *ngIf="tz.errors.minlength || tz.errors.maxlength">Id must be 9 characters long.</div>
+    <div *ngIf="tz.errors.pattern">Id must contain only digits</div>
+    <div *ngIf="tz.errors.ValidateTz">Id is not exist</div>
+  </div>
+
+  <label id="icon" for="name"><i class="icon-user"></i></label>
+  <input type="text" name="name"  placeholder="Name" required  minlength="3" maxlength="15" formControlName="name"/>
+  <div *ngIf="name.invalid && (name.dirty || name.touched || submitted)" class="alert alert-danger">
+      <div *ngIf="name.errors.required">Name is required.</div>
+      <div *ngIf="name.errors.minlength">Name must be at least 3 characters long.</div>
+      <div *ngIf="name.errors.maxlength">Name must be maximum 15 characters long.</div>
+      <div *ngIf="name.errors.pattern">Name must contain only letters</div>
+    </div>
+
+  <label id="icon" for="name"><i class="icon-pencil"></i></label>
+  <input type="number" name="age"  placeholder="Age" required min="0" max="120"  formControlName="age"/>
+  <div *ngIf="age.invalid && (age.dirty || age.touched || submitted)" class="alert alert-danger">
+      <div *ngIf="age.errors.required">Age is required.</div>
+      <div *ngIf="age.errors.min">Age must be greater or equals to 0</div>
+      <div *ngIf="age.errors.max">Age must be less than or equals to 120</div>
+    </div>
+  <label id="icon" for="name"><i class="icon-envelope "></i></label>
+<select class="form-control" required name="country"  formControlName="country">
+  <option value="" disabled>
+      Country
+  </option>
+<option *ngFor="let country of countries">
+{{country}}
+</option>
+
+</select>
+<div *ngIf="country.invalid && (country.dirty || country.touched || submitted)" class="alert alert-danger">
+    <div *ngIf="country.errors.required">Country is required.</div>
+  </div>
+
+  <div class="gender">
+    <input type="radio" value="true" id="male" name="gender" required  formControlName="gender"/>
+    <label for="male" class="radio" chec>Male</label>
+    <input type="radio" value="false" id="female" name="gender"  formControlName="gender"/>
+    <label for="female" class="radio">Female</label>
+    <div class="alert alert-danger">
+        <div *ngIf="!gender.dirty && submitted">IsMale is required.</div>
+      </div>
+   </div> 
+   <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
+   <input type="submit" class="button" value="Register">
+  </form>
+</div>
