@@ -9,6 +9,7 @@ import { PackageService } from '../../shared/services/package.service';
 export class PackageListComponent implements OnInit {
 inputValue:string="";
 listPackage:any[]=[];
+dates:Date[]=[];
   constructor(private packageService:PackageService) { 
     this.packageService.subject.subscribe(
     {
@@ -17,6 +18,16 @@ listPackage:any[]=[];
 res=>{console.log(res)
 
 this.listPackage=res;
+if(this.dates.length==2)
+{for(let i=0;i<this.listPackage.length;i++)
+  {
+    this.packageService.getDownload(this.listPackage[i]["package"].name,this.dates).subscribe(
+      res=>{
+  
+        this.listPackage[i]["package"].downloads=res["downloads"];
+      }
+    )
+  }}
 }
 );
       }
@@ -24,7 +35,8 @@ this.listPackage=res;
   this.packageService.dateSubjevt.subscribe(
 {
 next:(v:Date[])=>{
-  console.log(v[0],v[1]);
+  this.dates=v;
+
 for(let i=0;i<this.listPackage.length;i++)
 {
   this.packageService.getDownload(this.listPackage[i]["package"].name,v).subscribe(
