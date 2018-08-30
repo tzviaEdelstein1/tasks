@@ -1,0 +1,13 @@
+<p>
+  package-list
+</p>
+<h2>{{inputValue}}</h2>
+
+<ul > 
+<li *ngFor=" let x of listPackage">
+<span>name:</span> <p> {{x["package"].name}}</p><span>downloads:</span><p> {{x["package"].downloads}}</p>
+</li>
+</ul>
+
+
+
