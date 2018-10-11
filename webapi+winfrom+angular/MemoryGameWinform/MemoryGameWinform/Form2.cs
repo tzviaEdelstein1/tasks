@@ -28,8 +28,6 @@ namespace MemoryGameWinform
         {
             GetList();
             MyTimer = new Timer();
-
-
             MyTimer.Interval = (2000);
             MyTimer.Tick += new EventHandler(MyTimer_Tick);
             MyTimer.Start();

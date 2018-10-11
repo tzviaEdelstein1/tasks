@@ -156,11 +156,7 @@ namespace MemoryGameWinform
 
                             }
                             MessageBox.Show("ok");
-                            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"http://localhost:58931/GetGame/" + userName);
-                            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                            string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-                            game = JsonConvert.DeserializeObject<Game>(content);
+                            GetGame();
 
                         }
                         else
