@@ -155,13 +155,13 @@ namespace MemoryGameWinform
                                 }
 
                             }
-                            MessageBox.Show("ok");
+                            MessageBox.Show("good");
                             GetGame();
 
                         }
                         else
                         {
-                            MessageBox.Show("error");
+                            MessageBox.Show("mistake!!");
                             for (int i = 0; i < randButtons.Count; i++)
                             {
                                 if (randButtons[i].Text == selectedCards[0] || randButtons[i].Text == selectedCards[1])
